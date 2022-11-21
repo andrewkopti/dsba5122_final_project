@@ -1,0 +1,8 @@
+name: dsba5122_final
+channels:
+  - defaults
+dependencies:
+  - altair=4.1.0=py_1
+  - plotly
+
+prefix: C:\Users\Andrew\miniconda3\envs\dsba5122_final
