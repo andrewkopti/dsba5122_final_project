@@ -8,7 +8,7 @@ st.header('Non-profit Organizations in the United States')
 
 # sidebar
 st.sidebar.header('Size Metric')
-st.sidebar.write('How to define an organization\'s size? Select the metric below that\'s most important to you.')
+st.sidebar.write('How do you define an organization\'s size? Select the metric below that\'s most important to you.')
 metrics = {
     'Employees': 'TOTEMPLOYEE', 
     'Revenue': 'TOTALREVCURRENT', 
@@ -44,7 +44,7 @@ with tab1:
     # text
     st.write('### How big is the non-profit industry in the United States?')
     st.write(f'In 2017, **{total_organizations:,}** non-profit orgnanizations \
-        existed in the United States.')
+        were registered in the United States.')
     st.write(f'They reported **${total_revenue:,}** in total revenue.')
 
     # choropleth using plotly (streamlit does not render these from altair)
@@ -119,7 +119,7 @@ with tab3:
     st.write('### How do the largest non-profits spend their money?')
     st.write('Non-profits with different missions can be expected to spend different \
         proportions of their revenue on salaries versus other expenses.')
-    st.write('For example, a hospital system needs to employee a large number \
+    st.write('For example, a hospital system needs to employ a large number \
         of healthcare workers, which can be expensive. Alternatively, healthcare \
         insurance providers are often rated based on the ratio of claims expenses \
         to salaries, which should be a much smaller proportion.')
