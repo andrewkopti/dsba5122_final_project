@@ -50,6 +50,7 @@ def human_format(num):
     return '{}{}'.format('{:f}'.format(num).rstrip('0').rstrip('.'), ['', ' Thousand', ' Million', ' Billion'][magnitude])  
 
 total_revenue = human_format(df['TOTALREVCURRENT'].sum())
+total_revenue_portion = df.nlargest(n_organizations, 'TOTALREVCURRENT')['TOTALREVCURRENT'].sum() / df['TOTALREVCURRENT'].sum()
 
 # organization count dataframe
 count_df = df.groupby(['STATE'])['STATE'].count()
@@ -75,7 +76,8 @@ with tab1:
     st.header('How big is the non-profit industry in the United States?')
     st.write(f'In 2017, <span class = highlight>{total_organizations:,}</span> non-profit orgnanizations \
         were registered in the United States.', unsafe_allow_html=True)
-    st.write(f'They reported <span class = highlight>${total_revenue}</span> in total revenue.', unsafe_allow_html=True)
+    st.write(f'These non-profits reported <span class = highlight>${total_revenue}</span> in total revenue. The top \
+        {n_organizations} organizations by revenue account for {total_revenue_portion:.0%} of that total.', unsafe_allow_html=True)
 
     # choropleth using plotly (streamlit does not render these from altair)
     count_map = px.choropleth(
